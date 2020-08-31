@@ -37,3 +37,43 @@ class TopologicalSort {
         return ans;
     }
 }
+
+// Topological sort (DFS) 
+class TopologicalSort 
+{
+    static Stack<Integer> stack;
+    
+    static void DFSREC(ArrayList<ArrayList<Integer>> adj, boolean[] seen, int curr)
+    {
+        seen[curr]= true;
+        
+        for(int i: adj.get(curr))
+        {
+            if(seen[i]) continue;
+            
+            seen[i]= true;
+            DFSREC(adj, seen, i);
+        }
+        stack.push(curr);
+    }
+    
+    static int[] topoSort(ArrayList<ArrayList<Integer>> adj, int N) 
+    {
+        boolean[] seen= new boolean[N];
+        stack= new Stack<Integer>();
+        
+        for(int i=0;i<N;i++)
+        {
+            if(!seen[i])
+                DFSREC(adj, seen, i);
+        }
+        
+        int[] ans=new int[N];
+        int c=0;
+        
+        while(!stack.isEmpty())
+            ans[c++]= stack.pop();
+        
+        return ans;
+    }
+}
