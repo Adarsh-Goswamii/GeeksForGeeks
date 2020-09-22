@@ -40,3 +40,14 @@ class MST {
         return ans;
     }
 }
+
+/***************************************** ALL THE ALGORITHMS WORK ON GREEDY APPROACH AND HAVE SAME TIME COMPLEXITIES EXCEPT 3****************************************/
+// Apart from Prim's Algorithm there are few other algorithms too, to find the minimum spanning tree.
+// 1. Boruvka's Algorithm: consider all edges in a MST which have minimum weightage i.e. min weight edge incident on every vertex.
+//    This will give us number of tree structures which are disconnected so repeat this process until every tree is connected 
+//    Choose a edges that has min weight and connects two graph
+
+// 2. Kruskal's Algorithm: Start from the least weighted edge which does'nt cause any cycle and move towards the max weighted edge.
+//    When all the vertex are connected we have our ans.
+
+// 3. Reverse Delete Algorithm: opposite of krushkal here we start with the given graph and delete the edges which does'nt breaks the graph.
